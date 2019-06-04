@@ -33,4 +33,11 @@ public interface CrudRepository<EntityType, EntityIdType> extends Repository {
      * @param entity The entity.
      */
     void delete(EntityType entity);
+
+    /**
+     * Count all available entities.
+     *
+     * @return The amount of entites.
+     */
+    long count();
 }
