@@ -35,6 +35,11 @@ public interface CrudRepository<EntityType, EntityIdType> extends Repository {
     void delete(EntityType entity);
 
     /**
+     * Delete all entities.
+     */
+    void deleteAll();
+
+    /**
      * Count all available entities.
      *
      * @return The amount of entites.
