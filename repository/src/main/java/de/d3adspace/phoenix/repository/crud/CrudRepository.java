@@ -7,6 +7,14 @@ import java.util.List;
 public interface CrudRepository<EntityType, EntityIdType> extends Repository {
 
     /**
+     * Find a single entity by its.
+     *
+     * @param id The id of the entity.
+     * @return The entity.
+     */
+    EntityType find(EntityIdType id);
+
+    /**
      * Find all entities.
      */
     List<EntityType> findAll();
