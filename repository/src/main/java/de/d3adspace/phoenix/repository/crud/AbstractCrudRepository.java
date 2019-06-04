@@ -2,7 +2,7 @@ package de.d3adspace.phoenix.repository.crud;
 
 import de.d3adspace.phoenix.repository.AbstractRepository;
 
-public abstract class AbstractCrudRepository<EntityType, EntityIdType> extends AbstractRepository<EntityType, EntityIdType> {
+public abstract class AbstractCrudRepository<EntityType, EntityIdType> extends AbstractRepository<EntityType, EntityIdType> implements CrudRepository<EntityType, EntityIdType> {
 
     /**
      * Create a new repository by the class of the entity it should store.
