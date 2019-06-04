@@ -18,4 +18,11 @@ public interface CrudRepository<EntityType, EntityIdType> extends Repository {
      * @return The saved entity.
      */
     EntityType save(EntityType entity);
+
+    /**
+     * Delete the given entity.
+     *
+     * @param entity The entity.
+     */
+    void delete(EntityType entity);
 }
