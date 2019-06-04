@@ -42,7 +42,7 @@ public interface CrudRepository<EntityType, EntityIdType> extends Repository {
     /**
      * Count all available entities.
      *
-     * @return The amount of entites.
+     * @return The amount of entities.
      */
     long count();
 }
