@@ -4,7 +4,7 @@ import de.d3adspace.phoenix.repository.Repository;
 
 import java.util.List;
 
-public interface CrudRepository<EntityType, EntityIdType> extends Repository {
+public interface CrudRepository<EntityType, EntityIdType> extends Repository<EntityType, EntityIdType> {
 
     /**
      * Find a single entity by its.
