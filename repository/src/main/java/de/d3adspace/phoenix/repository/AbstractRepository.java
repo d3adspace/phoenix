@@ -1,6 +1,6 @@
 package de.d3adspace.phoenix.repository;
 
-import org.apache.commons.lang3.Validate;
+import java.util.Objects;
 
 /**
  * Abstract implementation of the {@link Repository} that manages the entities class.
@@ -20,7 +20,7 @@ public abstract class AbstractRepository<EntityType, EntityIdType> implements Re
      * @param entityClass The entities class.
      */
     protected AbstractRepository(Class<EntityType> entityClass) {
-        Validate.notNull(entityClass, "Entity class cannot be null.");
+        Objects.requireNonNull(entityClass, "Entity class cannot be null.");
 
         this.entityClass = entityClass;
     }

@@ -1,11 +1,11 @@
 package de.d3adspace.phoenix.repository.map;
 
 import de.d3adspace.phoenix.repository.crud.AbstractCrudRepository;
-import org.apache.commons.lang3.Validate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * A map based crud repository that can store entities in an arbitrary {@link Map} implementation.
@@ -29,7 +29,7 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
     protected AbstractMapCrudRepository(Class<EntityType> entityClass, Map<EntityIdType, EntityType> storage) {
         super(entityClass);
 
-        Validate.notNull(storage, "Storage map cannot be null.");
+        Objects.requireNonNull(storage, "Storage map cannot be null.");
 
         this.storage = storage;
     }
@@ -46,7 +46,7 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
     @Override
     public EntityType find(EntityIdType id) {
 
-        Validate.notNull(id, "Entity id cannot be null.");
+        Objects.requireNonNull(id, "Entity id cannot be null.");
 
         return storage.get(id);
     }
@@ -66,7 +66,7 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
     @Override
     public void delete(EntityType entity) {
 
-        Validate.notNull(entity, "Entity cannot be null.");
+        Objects.requireNonNull(entity, "Entity cannot be null.");
 
         storage.values().remove(entity);
     }
