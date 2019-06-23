@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A map based crud repository that can store entities in an arbitrary {@link Map} implementation.
  *
- * @param <EntityType> The generic type of the entity.
+ * @param <EntityType>   The generic type of the entity.
  * @param <EntityIdType> The generic type of the entity id.
  */
 public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extends AbstractCrudRepository<EntityType, EntityIdType> {
@@ -24,7 +24,7 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
      * Create a new repository by the class of the entity it should store and the actual storage.
      *
      * @param entityClass The entities class.
-     * @param storage The map storage.
+     * @param storage     The map storage.
      */
     protected AbstractMapCrudRepository(Class<EntityType> entityClass, Map<EntityIdType, EntityType> storage) {
         super(entityClass);
@@ -58,17 +58,17 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
     }
 
     @Override
-    public void deleteAll() {
-
-        storage.clear();
-    }
-
-    @Override
     public void delete(EntityType entity) {
 
         Objects.requireNonNull(entity, "Entity cannot be null.");
 
         storage.values().remove(entity);
+    }
+
+    @Override
+    public void deleteAll() {
+
+        storage.clear();
     }
 
     @Override

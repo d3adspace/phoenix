@@ -10,6 +10,7 @@ public interface CrudRepository<EntityType, EntityIdType> extends Repository<Ent
      * Find a single entity by its.
      *
      * @param id The id of the entity.
+     *
      * @return The entity.
      */
     EntityType find(EntityIdType id);
@@ -23,6 +24,7 @@ public interface CrudRepository<EntityType, EntityIdType> extends Repository<Ent
      * Save the given entity.
      *
      * @param entity The entity.
+     *
      * @return The saved entity.
      */
     EntityType save(EntityType entity);

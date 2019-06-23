@@ -1,6 +1,5 @@
 package de.d3adspace.phoenix.repository.map;
 
-import de.d3adspace.phoenix.repository.AbstractRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
