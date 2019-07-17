@@ -48,6 +48,8 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
   @Override
   public EntityType save(EntityType entity) {
 
+    Objects.requireNonNull(entity, "Entity cannot be null.");
+
     EntityIdType entityId = EntityIdHelper.getId(entity);
     if (entityId == null) {
 
