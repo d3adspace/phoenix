@@ -1,7 +1,7 @@
 package de.d3adspace.phoenix.repository.map;
 
 import de.d3adspace.phoenix.repository.crud.AbstractCrudRepository;
-
+import de.d3adspace.phoenix.repository.helper.EntityIdHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -10,70 +10,92 @@ import java.util.Objects;
 /**
  * A map based crud repository that can store entities in an arbitrary {@link Map} implementation.
  *
- * @param <EntityType>   The generic type of the entity.
+ * @param <EntityType> The generic type of the entity.
  * @param <EntityIdType> The generic type of the entity id.
  */
-public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extends AbstractCrudRepository<EntityType, EntityIdType> {
+public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extends
+    AbstractCrudRepository<EntityType, EntityIdType> {
 
-    /**
-     * The actual storage map.
-     */
-    private final Map<EntityIdType, EntityType> storage;
+  /**
+   * The actual storage map.
+   */
+  private final Map<EntityIdType, EntityType> storage;
 
-    /**
-     * Create a new repository by the class of the entity it should store and the actual storage.
-     *
-     * @param entityClass The entities class.
-     * @param storage     The map storage.
-     */
-    protected AbstractMapCrudRepository(Class<EntityType> entityClass, Map<EntityIdType, EntityType> storage) {
-        super(entityClass);
+  /**
+   * Create a new repository by the class of the entity it should store and the actual storage.
+   *
+   * @param entityClass The entities class.
+   * @param storage The map storage.
+   */
+  protected AbstractMapCrudRepository(Class<EntityType> entityClass,
+      Map<EntityIdType, EntityType> storage) {
+    super(entityClass);
 
-        Objects.requireNonNull(storage, "Storage map cannot be null.");
+    Objects.requireNonNull(storage, "Storage map cannot be null.");
 
-        this.storage = storage;
+    this.storage = storage;
+  }
+
+  /**
+   * Get the underlying storage map.
+   *
+   * @return The underlying storage map.
+   */
+  protected Map<EntityIdType, EntityType> getStorage() {
+    return storage;
+  }
+
+  @Override
+  public EntityType save(EntityType entity) {
+
+    EntityIdType entityId = EntityIdHelper.getId(entity);
+    if (entityId == null) {
+
+      EntityIdHelper.setId(entity, nextId());
     }
 
-    /**
-     * Get the underlying storage map.
-     *
-     * @return The underlying storage map.
-     */
-    protected Map<EntityIdType, EntityType> getStorage() {
-        return storage;
-    }
+    storage.put(entityId, entity);
+    return entity;
+  }
 
-    @Override
-    public EntityType find(EntityIdType id) {
+  /**
+   * Generate the next available id.
+   *
+   * @return The entity id.
+   */
+  protected abstract EntityIdType nextId();
 
-        Objects.requireNonNull(id, "Entity id cannot be null.");
+  @Override
+  public EntityType find(EntityIdType id) {
 
-        return storage.get(id);
-    }
+    Objects.requireNonNull(id, "Entity id cannot be null.");
 
-    @Override
-    public List<EntityType> findAll() {
+    return storage.get(id);
+  }
 
-        return new ArrayList<>(storage.values());
-    }
+  @Override
+  public List<EntityType> findAll() {
 
-    @Override
-    public void delete(EntityType entity) {
+    return new ArrayList<>(storage.values());
+  }
 
-        Objects.requireNonNull(entity, "Entity cannot be null.");
+  @Override
+  public void delete(EntityType entity) {
 
-        storage.values().remove(entity);
-    }
+    Objects.requireNonNull(entity, "Entity cannot be null.");
 
-    @Override
-    public void deleteAll() {
+    storage.values().remove(entity);
+  }
 
-        storage.clear();
-    }
+  @Override
+  public void deleteAll() {
 
-    @Override
-    public long count() {
+    storage.clear();
+  }
 
-        return storage.size();
-    }
+  @Override
+  public long count() {
+
+    return storage.size();
+  }
 }

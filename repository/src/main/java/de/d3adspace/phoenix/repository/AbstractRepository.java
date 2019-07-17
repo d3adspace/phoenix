@@ -7,27 +7,28 @@ import java.util.Objects;
  *
  * @param <EntityType> The generic type of the entity.
  */
-public abstract class AbstractRepository<EntityType, EntityIdType> implements Repository<EntityType, EntityIdType> {
+public abstract class AbstractRepository<EntityType, EntityIdType> implements
+    Repository<EntityType, EntityIdType> {
 
-    /**
-     * The class that implements the entity.
-     */
-    private final Class<EntityType> entityClass;
+  /**
+   * The class that implements the entity.
+   */
+  private final Class<EntityType> entityClass;
 
-    /**
-     * Create a new repository by the class of the entity it should store.
-     *
-     * @param entityClass The entities class.
-     */
-    protected AbstractRepository(Class<EntityType> entityClass) {
-        Objects.requireNonNull(entityClass, "Entity class cannot be null.");
+  /**
+   * Create a new repository by the class of the entity it should store.
+   *
+   * @param entityClass The entities class.
+   */
+  protected AbstractRepository(Class<EntityType> entityClass) {
+    Objects.requireNonNull(entityClass, "Entity class cannot be null.");
 
-        this.entityClass = entityClass;
-    }
+    this.entityClass = entityClass;
+  }
 
-    @Override
-    public Class<EntityType> getEntityClass() {
+  @Override
+  public Class<EntityType> getEntityClass() {
 
-        return entityClass;
-    }
+    return entityClass;
+  }
 }

@@ -5,10 +5,10 @@ package de.d3adspace.phoenix.repository;
  */
 public interface Repository<EntityType, EntityIdType> {
 
-    /**
-     * The class of the entity.
-     *
-     * @return The class of the entity.
-     */
-    Class<EntityType> getEntityClass();
+  /**
+   * The class of the entity.
+   *
+   * @return The class of the entity.
+   */
+  Class<EntityType> getEntityClass();
 }
