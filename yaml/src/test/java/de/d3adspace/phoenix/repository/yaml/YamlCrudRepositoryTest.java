@@ -1,6 +1,7 @@
 package de.d3adspace.phoenix.repository.yaml;
 
 import de.d3adspace.phoenix.annotations.Id;
+import de.d3adspace.phoenix.repository.yaml.exception.PhoenixYamlIOException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,7 +29,7 @@ class YamlCrudRepositoryTest {
   }
 
   @Test
-  void load() {
+  void load() throws PhoenixYamlIOException {
     repository.load();
 
     TestModel lisa = repository.find("lisa");
@@ -36,7 +37,7 @@ class YamlCrudRepositoryTest {
   }
 
   @Test
-  void save() {
+  void save() throws PhoenixYamlIOException {
 
     repository.save();
 

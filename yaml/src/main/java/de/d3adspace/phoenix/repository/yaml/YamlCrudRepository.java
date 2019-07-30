@@ -1,6 +1,7 @@
 package de.d3adspace.phoenix.repository.yaml;
 
 import de.d3adspace.phoenix.repository.map.AbstractMapCrudRepository;
+import de.d3adspace.phoenix.repository.yaml.exception.PhoenixYamlIOException;
 import de.felixklauke.kira.core.Kira;
 import de.felixklauke.kira.core.KiraFactory;
 import java.io.BufferedReader;
@@ -14,7 +15,6 @@ import java.util.UUID;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.DumperOptions.FlowStyle;
 import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.nodes.Tag;
 
 public class YamlCrudRepository<EntityType> extends
   AbstractMapCrudRepository<EntityType, String> {
@@ -42,8 +42,6 @@ public class YamlCrudRepository<EntityType> extends
     super(entityClass, new HashMap<>());
     this.yaml = yaml;
     this.path = path;
-
-    load();
   }
 
   /**
@@ -56,7 +54,7 @@ public class YamlCrudRepository<EntityType> extends
     this(entityClass, DEFAULT_YAML, path);
   }
 
-  public void load() {
+  public void load() throws PhoenixYamlIOException {
 
     try (BufferedReader bufferedReader = Files.newBufferedReader(path)) {
 
@@ -69,11 +67,11 @@ public class YamlCrudRepository<EntityType> extends
       });
 
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new PhoenixYamlIOException("Couldn't load yaml config.", e);
     }
   }
 
-  public void save() {
+  public void save() throws PhoenixYamlIOException {
 
     try (BufferedWriter bufferedWriter = Files.newBufferedWriter(path)) {
 
@@ -91,7 +89,7 @@ public class YamlCrudRepository<EntityType> extends
       bufferedWriter.flush();
 
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new PhoenixYamlIOException("Couldn't write yaml config.", e);
     }
   }
 
