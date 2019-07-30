@@ -41,7 +41,7 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
    *
    * @return The underlying storage map.
    */
-  Map<EntityIdType, EntityType> getStorage() {
+  protected Map<EntityIdType, EntityType> getStorage() {
     return storage;
   }
 
@@ -65,7 +65,7 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
    *
    * @return The entity id.
    */
-  abstract EntityIdType nextId();
+  protected abstract EntityIdType nextId();
 
   @Override
   public EntityType find(EntityIdType id) {

@@ -28,6 +28,11 @@ class AbstractMapCrudRepositoryTest {
       public String save(String entity) {
         throw new IllegalStateException();
       }
+
+      @Override
+      protected Integer nextId() {
+        return -1;
+      }
     };
   }
 

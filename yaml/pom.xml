@@ -10,6 +10,32 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>phoenix-yaml</artifactId>
+  <dependencies>
+
+    <!-- Phoenix maps utility -->
+    <dependency>
+      <groupId>de.d3adspace.phoenix</groupId>
+      <artifactId>phoenix-map</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- SnakeYaml -->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>1.24</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- Kira -->
+    <dependency>
+      <groupId>de.felixklauke.kira</groupId>
+      <artifactId>kira-core</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 
 
 </project>
