@@ -1,7 +1,7 @@
 [![Quality Gate Status](https://sonar.klauke-enterprises.com/api/project_badges/measure?project=phoenix&metric=alert_status)](https://sonar.klauke-enterprises.com/dashboard?id=phoenix)
 
 # phoenix
-Flexible and powerful persistence utilities providing utilities for various persistence topics and helps building repository and object oriented data access layers. Mainly focussed on Hibernate and SQL.
+Flexible and powerful persistence utilities providing utilities for various persistence topics and helps building repository and object oriented data access layers.
 
 # Build Status
 |             | Build Status                                                                                                            |
