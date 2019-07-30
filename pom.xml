@@ -139,6 +139,7 @@
     <module>repository</module>
     <module>map</module>
     <module>annotations</module>
+    <module>yaml</module>
   </modules>
 
   <packaging>pom</packaging>
