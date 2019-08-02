@@ -73,21 +73,20 @@ public class YamlCrudRepository<EntityType> extends
 
   public void save() throws PhoenixYamlIOException {
 
+    Map<String, Map<String, Object>> documentContent = new HashMap<>();
+    Map<String, EntityType> storage = getStorage();
+
+    storage.forEach((key, value) -> {
+
+      Map<String, Object> serialize = KIRA.serialize(value);
+      documentContent.put(key, serialize);
+    });
+
+    String document = yaml.dumpAsMap(documentContent);
+
     try (BufferedWriter bufferedWriter = Files.newBufferedWriter(path)) {
-
-      Map<String, Map<String, Object>> documentContent = new HashMap<>();
-      Map<String, EntityType> storage = getStorage();
-
-      storage.forEach((key, value) -> {
-
-        Map<String, Object> serialize = KIRA.serialize(value);
-        documentContent.put(key, serialize);
-      });
-
-      String document = yaml.dumpAsMap(documentContent);
       bufferedWriter.write(document);
       bufferedWriter.flush();
-
     } catch (IOException e) {
       throw new PhoenixYamlIOException("Couldn't write yaml config.", e);
     }
