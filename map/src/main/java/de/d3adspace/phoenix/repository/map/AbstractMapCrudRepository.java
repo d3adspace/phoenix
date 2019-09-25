@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A map based crud repository that can store entities in an arbitrary {@link Map} implementation.
@@ -68,11 +69,11 @@ public abstract class AbstractMapCrudRepository<EntityType, EntityIdType> extend
   protected abstract EntityIdType nextId();
 
   @Override
-  public EntityType find(EntityIdType id) {
+  public Optional<EntityType> find(EntityIdType id) {
 
     Objects.requireNonNull(id, "Entity id cannot be null.");
 
-    return storage.get(id);
+    return Optional.ofNullable(storage.get(id));
   }
 
   @Override

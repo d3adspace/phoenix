@@ -2,6 +2,7 @@ package de.d3adspace.phoenix.repository.crud;
 
 import de.d3adspace.phoenix.repository.Repository;
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudRepository<EntityType, EntityIdType> extends
     Repository<EntityType, EntityIdType> {
@@ -12,7 +13,7 @@ public interface CrudRepository<EntityType, EntityIdType> extends
    * @param id The id of the entity.
    * @return The entity.
    */
-  EntityType find(EntityIdType id);
+  Optional<EntityType> find(EntityIdType id);
 
   /**
    * Find all entities.
