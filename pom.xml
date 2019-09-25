@@ -10,6 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <name>Phoenix Parent</name>
+  <inceptionYear>2019</inceptionYear>
   <description>Phoenix Project parent module</description>
 
   <modules>
@@ -18,6 +19,17 @@
     <module>annotations</module>
     <module>yaml</module>
   </modules>
+
+  <developers>
+    <developer>
+      <id>felixklauke</id>
+      <email>info@felix-klauke.de</email>
+      <name>Felix Klauke</name>
+      <url>https://www.felix-klauke.com</url>
+      <organization>Klauke Enterprises</organization>
+      <organizationUrl>https://www.klauke-enterprises.com</organizationUrl>
+    </developer>
+  </developers>
 
   <properties>
     <!-- Sonar -->
