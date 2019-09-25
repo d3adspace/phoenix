@@ -1,9 +1,9 @@
 package de.d3adspace.phoenix.repository.yaml;
 
+import com.felixklauke.kira.core.Kira;
+import com.felixklauke.kira.core.KiraFactory;
 import de.d3adspace.phoenix.repository.map.AbstractMapCrudRepository;
 import de.d3adspace.phoenix.repository.yaml.exception.PhoenixYamlIOException;
-import de.felixklauke.kira.core.Kira;
-import de.felixklauke.kira.core.KiraFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
