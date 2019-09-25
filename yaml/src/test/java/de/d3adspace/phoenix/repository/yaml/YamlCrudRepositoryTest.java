@@ -32,7 +32,7 @@ class YamlCrudRepositoryTest {
   void load() throws PhoenixYamlIOException {
     repository.load();
 
-    TestModel lisa = repository.find("lisa");
+    TestModel lisa = repository.find("lisa").orElseThrow();
     Assertions.assertEquals(DATA_MODEL, lisa);
   }
 

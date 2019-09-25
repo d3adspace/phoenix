@@ -13,6 +13,10 @@
   <inceptionYear>2019</inceptionYear>
   <description>Phoenix Project parent module</description>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <modules>
     <module>repository</module>
     <module>map</module>

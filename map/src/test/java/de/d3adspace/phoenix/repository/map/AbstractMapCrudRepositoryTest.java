@@ -46,7 +46,7 @@ class AbstractMapCrudRepositoryTest {
   @Test
   void find() {
 
-    String result = abstractRepository.find(TEST_KEY);
+    String result = abstractRepository.find(TEST_KEY).orElseThrow();
     assertEquals(TEST_VALUE, result, "Looked up value should match inserted one.");
   }
 
