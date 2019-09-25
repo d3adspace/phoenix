@@ -39,6 +39,7 @@ class YamlCrudRepositoryTest {
   @Test
   void save() throws PhoenixYamlIOException {
 
+    repository.save(DATA_MODEL);
     repository.save();
 
     try {
