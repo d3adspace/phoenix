@@ -17,7 +17,7 @@ import org.yaml.snakeyaml.DumperOptions.FlowStyle;
 import org.yaml.snakeyaml.Yaml;
 
 public class YamlCrudRepository<EntityType> extends
-  AbstractMapCrudRepository<EntityType, String> {
+    AbstractMapCrudRepository<EntityType, String> {
 
   private static final Kira KIRA = KiraFactory.createKira();
   private static final DumperOptions DUMPER_OPTIONS = new DumperOptions();

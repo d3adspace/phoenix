@@ -14,9 +14,9 @@ import org.junit.jupiter.api.Test;
 class YamlCrudRepositoryTest {
 
   private static final String DATA_CONTENT = "lisa:\n"
-    + "  name: lisa\n"
-    + "  id: lisa\n"
-    + "";
+      + "  name: lisa\n"
+      + "  id: lisa\n"
+      + "";
 
   private static final TestModel DATA_MODEL = new TestModel("lisa", "lisa");
   private static final Path DATA_PATH = Paths.get("src/test/resources/data.yaml");
@@ -75,9 +75,9 @@ class YamlCrudRepositoryTest {
     @Override
     public String toString() {
       return new StringJoiner(", ", TestModel.class.getSimpleName() + "[", "]")
-        .add("id='" + id + "'")
-        .add("name='" + name + "'")
-        .toString();
+          .add("id='" + id + "'")
+          .add("name='" + name + "'")
+          .toString();
     }
 
     @Override
