@@ -6,8 +6,8 @@ Phoenix uses [Kira](https://github.com/FelixKlauke/kira) for object mapping.
 # Build Status
 |             | Build Status                                                                                                            |
 |-------------|-------------------------------------------------------------------------------------------------------------------------|
-| Master      | [![Build Status](https://travis-ci.org/d3adspace/phoenix.svg?branch=master)](https://travis-ci.org/d3adspace/phoenix) |
-| Development | [![Build Status](https://travis-ci.org/d3adspace/phoenix.svg?branch=dev)](https://travis-ci.org/d3adspace/phoenix) |
+| Master      | [![Build Status](https://travis-ci.com/d3adspace/phoenix.svg?branch=master)](https://travis-ci.com/d3adspace/phoenix) |
+| Development | [![Build Status](https://travis-ci.com/d3adspace/phoenix.svg?branch=dev)](https://travis-ci.com/d3adspace/phoenix) |
 
 # Usage
 
