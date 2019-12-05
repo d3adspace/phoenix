@@ -4,125 +4,38 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <artifactId>phoenix-parent</artifactId>
-  <groupId>de.d3adspace.phoenix</groupId>
-  <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <modelVersion>4.0.0</modelVersion>
-
-  <name>Phoenix Parent</name>
-  <inceptionYear>2019</inceptionYear>
-  <description>Phoenix Project parent module</description>
-
-  <modules>
-    <module>repository</module>
-    <module>map</module>
-    <module>annotations</module>
-    <module>yaml</module>
-  </modules>
-
-  <developers>
-    <developer>
-      <id>felixklauke</id>
-      <email>info@felix-klauke.de</email>
-      <name>Felix Klauke</name>
-      <url>https://www.felix-klauke.com</url>
-      <organization>Klauke Enterprises</organization>
-      <organizationUrl>https://www.klauke-enterprises.com</organizationUrl>
-    </developer>
-  </developers>
-
-  <properties>
-    <!-- Encoding -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- Sonar -->
-    <junit-jupiter.version>5.4.2</junit-jupiter.version>
-    <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
-    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
-
-    <!-- Maven -->
-    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
-    <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
-    <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
-    <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
-    <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
-    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
-    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-
-    <!-- Dependencies -->
-    <sonar.language>java</sonar.language>
-  </properties>
-
-  <repositories>
-    <repository>
-      <id>klauke-enterprises-maven-releases</id>
-      <name>Klauke Enterprises Maven Releases</name>
-      <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <repository>
-      <id>klauke-enterprises-maven-snapshots</id>
-      <name>Klauke Enterprises Maven Snapshots</name>
-      <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-    </repository>
-  </repositories>
-
-  <dependencies>
-    <!-- JUnit Jupiter -->
-    <dependency>
-      <artifactId>junit-jupiter-api</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>${junit-jupiter.version}</version>
-    </dependency>
-
-    <!-- Junit Jupiter Engine -->
-    <dependency>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>${junit-jupiter.version}</version>
-    </dependency>
-  </dependencies>
-
   <build>
     <plugins>
 
       <!-- Maven Surefire -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
         <version>${maven.plguin.surefire.version}</version>
       </plugin>
 
       <!-- Maven Compiler -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.plugin.compiler.version}</version>
         <configuration>
           <source>11</source>
           <target>11</target>
         </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven.plugin.compiler.version}</version>
       </plugin>
 
       <!-- Maven release plugin -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
         <version>${maven.plugin.release.version}</version>
       </plugin>
 
       <!-- SonarQube -->
       <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
+        <groupId>org.sonarsource.scanner.maven</groupId>
         <version>${maven.plugin.sonar.version}</version>
       </plugin>
 
@@ -172,6 +85,34 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <!-- JUnit Jupiter -->
+    <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>${junit-jupiter.version}</version>
+    </dependency>
+
+    <!-- Junit Jupiter Engine -->
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>${junit-jupiter.version}</version>
+    </dependency>
+  </dependencies>
+  <description>Phoenix Project parent module</description>
+  <developers>
+    <developer>
+      <email>info@felix-klauke.de</email>
+      <id>felixklauke</id>
+      <name>Felix Klauke</name>
+      <organization>Klauke Enterprises</organization>
+      <organizationUrl>https://www.klauke-enterprises.com</organizationUrl>
+      <url>https://www.felix-klauke.com</url>
+    </developer>
+  </developers>
 
   <distributionManagement>
     <repository>
@@ -186,4 +127,63 @@
       <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
+  <groupId>de.d3adspace.phoenix</groupId>
+  <inceptionYear>2019</inceptionYear>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <modules>
+    <module>repository</module>
+    <module>map</module>
+    <module>annotations</module>
+    <module>yaml</module>
+  </modules>
+
+  <name>Phoenix Parent</name>
+
+  <packaging>pom</packaging>
+
+  <properties>
+    <!-- Encoding -->
+    <junit-jupiter.version>5.4.2</junit-jupiter.version>
+
+    <!-- Sonar -->
+    <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
+    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
+    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
+
+    <!-- Maven -->
+    <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
+    <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
+    <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
+    <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+
+    <!-- Dependencies -->
+    <sonar.language>java</sonar.language>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>klauke-enterprises-maven-releases</id>
+      <name>Klauke Enterprises Maven Releases</name>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
+    </repository>
+
+    <repository>
+      <id>klauke-enterprises-maven-snapshots</id>
+      <name>Klauke Enterprises Maven Snapshots</name>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
+    </repository>
+  </repositories>
+
+  <version>1.0-SNAPSHOT</version>
 </project>
