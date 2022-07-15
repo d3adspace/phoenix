@@ -36,16 +36,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Sonar -->
-    <junit-jupiter.version>5.5.2</junit-jupiter.version>
+    <junit-jupiter.version>5.7.2</junit-jupiter.version>
     <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
     <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
 
     <!-- Maven -->
-    <maven.plugin.jacoco.version>0.8.5</maven.plugin.jacoco.version>
+    <maven.plugin.jacoco.version>0.8.8</maven.plugin.jacoco.version>
     <maven.plugin.javadoc.version>3.3.0</maven.plugin.javadoc.version>
     <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
-    <maven.plugin.sonar.version>3.7.0.1746</maven.plugin.sonar.version>
-    <maven.plugin.source.version>3.2.0</maven.plugin.source.version>
+    <maven.plugin.sonar.version>3.9.0.2155</maven.plugin.sonar.version>
+    <maven.plugin.source.version>3.2.1</maven.plugin.source.version>
     <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 
