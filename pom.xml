@@ -38,7 +38,7 @@
     <!-- Sonar -->
     <junit-jupiter.version>5.8.2</junit-jupiter.version>
     <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
-    <maven.plugin.compiler.version>3.10.1</maven.plugin.compiler.version>
+    <maven.plugin.compiler.version>3.11.0</maven.plugin.compiler.version>
 
     <!-- Maven -->
     <maven.plugin.jacoco.version>0.8.8</maven.plugin.jacoco.version>
